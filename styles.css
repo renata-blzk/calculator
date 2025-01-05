@@ -1,5 +1,12 @@
+body {
+    background-color: rgb(246, 214, 220);
+}
+
 h1 {
     text-align: center;
+    color: rgb(200, 119, 133);
+    text-shadow: 2px 2px rgb(20, 19, 19);
+    font-size: 40px;
 }
 
 .calculator {
@@ -53,7 +60,7 @@ h1 {
 }
 
 .equal {
-    background-color: hsla(108, 74%, 59%, 0.7);
+    background-color: hsla(108, 55%, 49%, 0.7);
     border-radius: 5%;
     border: solid 2px rgb(39, 107, 69);
 }

@@ -1,6 +1,3 @@
-const header = document.querySelector('h1')
-header.style.color = 'pink';
-
 const add = (a, b) => {
     return (a + b)
 }
