@@ -16,4 +16,7 @@ const multiply = (a, b) => {
 const divide = (a, b) => {
     return (a / b);
 }
-console.log(divide(45, 2));
+
+let num1;
+let num2;
+let operator;
