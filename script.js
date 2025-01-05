@@ -1,3 +1,7 @@
+let num1;
+let num2;
+let operator;
+
 const add = (a, b) => {
     return (a + b)
 }
@@ -14,10 +18,6 @@ const divide = (a, b) => {
     return (a / b);
 }
 
-let num1;
-let num2;
-let operator;
-
 const operate = (num1, operator, num2) => {
     switch (operator) {
         case '+':
@@ -31,9 +31,13 @@ const operate = (num1, operator, num2) => {
     }
 };
 
+const inputText = document.querySelector('#input');
 const buttons = document.querySelectorAll('button');
+
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        alert(button.id);
+
+        return inputText.textContent += button.id;      
+
     });
 });
