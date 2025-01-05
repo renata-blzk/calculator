@@ -31,4 +31,9 @@ const operate = (num1, operator, num2) => {
     }
 };
 
-
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        alert(button.id);
+    });
+});

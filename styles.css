@@ -31,7 +31,7 @@ h1 {
     text-align: center;
 }
 
-.button, .display {
+button, .display {
     background-color: brown;
     min-width: 90px;
     min-height: 60px;
@@ -53,10 +53,11 @@ h1 {
     padding-right: 10px;
 }
 
-.button {
+button {
     border-radius: 32%;
     background-color: antiquewhite;
     border: solid 2px aliceblue;
+    font-size: 35px;
 }
 
 .equal {
