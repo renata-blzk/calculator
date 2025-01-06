@@ -1,7 +1,3 @@
-let num1;
-let num2;
-let operator;
-
 const add = (a, b) => {
     return (a + b)
 }
@@ -31,13 +27,18 @@ const operate = (num1, operator, num2) => {
     }
 };
 
+let num1;
+let num2;
+let operator;
+
 const inputText = document.querySelector('#input');
-const buttons = document.querySelectorAll('button');
+const numBtn = document.querySelectorAll('.number');
 
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-
-        return inputText.textContent += button.id;      
+numBtn.forEach((num) => {
+    num.addEventListener('click', (e) => {
+        
+        num1 = e.target.textContent;
+        return inputText.textContent += e.target.textContent;     
 
     });
 });
