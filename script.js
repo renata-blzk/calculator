@@ -27,18 +27,24 @@ const operate = (num1, operator, num2) => {
     }
 };
 
-let num1;
-let num2;
-let operator;
+let num1 = "";
+let num2 = "";
+let operator = "";
 
 const inputText = document.querySelector('#input');
 const numBtn = document.querySelectorAll('.number');
 
 numBtn.forEach((num) => {
     num.addEventListener('click', (e) => {
-        
-        num1 = e.target.textContent;
-        return inputText.textContent += e.target.textContent;     
+        if (operator === "") {
+            num1 += e.target.textContent;
+            return inputText.textContent += e.target.textContent; 
+            console.log(num1);
+        } else {
+            num2 += e.target.textContent;
+            return inputText.textContent += e.target.textContent; 
+        }
+            
 
     });
 });
