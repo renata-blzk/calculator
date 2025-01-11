@@ -42,6 +42,7 @@ numBtn.forEach((num) => {
             num1 += e.target.textContent;
             return inputText.textContent += e.target.textContent; 
         } else {
+            inputText.textContent = "" ;
             num2 += e.target.textContent;
             return inputText.textContent += e.target.textContent; 
         }
@@ -57,12 +58,15 @@ operateBtn.forEach((operation) => {
             operate(num1, operator, num2);
             return inputText.textContent = result;
         }
-    })
-})
+    });
+});
 
 clearBtn.addEventListener('click', () => {
     num1 = "";
     num2 = "";
     operator = "";
     inputText.textContent = "";
-})
+});
+
+
+
