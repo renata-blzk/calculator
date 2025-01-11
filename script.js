@@ -20,6 +20,9 @@ const multiply = (a, b) => {
 }
 
 const divide = (a, b) => {
+    if (num2 === '0') {
+        return result = ("nope");
+    }
     return result = (a / b);
 }
 
@@ -49,6 +52,7 @@ numBtn.forEach((num) => {
     });
 });
 
+
 operateBtn.forEach((operation) => {
     operation.addEventListener('click', (e) => {
         if (e.target.innerText != "=") {
@@ -56,7 +60,7 @@ operateBtn.forEach((operation) => {
             return inputText.textContent = e.target.textContent;
         } else {
             operate(num1, operator, num2);
-            return inputText.textContent = result;
+            return inputText.textContent = result; 
         }
     });
 });
@@ -66,7 +70,14 @@ clearBtn.addEventListener('click', () => {
     num2 = "";
     operator = "";
     inputText.textContent = "";
+    result = "";
 });
+
+const newNumb = (storedNumber, result) => {
+    if (result != "") {
+        num1 = result;
+    } 
+};
 
 
 
