@@ -1,3 +1,7 @@
+const inputText = document.querySelector('#input');
+const numBtn = document.querySelectorAll('.number');
+const operateBtn = document.querySelectorAll('.function');
+const clearBtn = document.querySelector('.clear');
 let num1 = "";
 let num2 = "";
 let operator = "";
@@ -32,9 +36,6 @@ const operate = (num1, operator, num2) => {
     }
 };
 
-const inputText = document.querySelector('#input');
-const numBtn = document.querySelectorAll('.number');
-
 numBtn.forEach((num) => {
     num.addEventListener('click', (e) => {
         if (operator === "") {
@@ -47,8 +48,6 @@ numBtn.forEach((num) => {
     });
 });
 
-const operateBtn = document.querySelectorAll('.function');
-
 operateBtn.forEach((operation) => {
     operation.addEventListener('click', (e) => {
         if (e.target.innerText != "=") {
@@ -59,4 +58,11 @@ operateBtn.forEach((operation) => {
             return inputText.textContent = result;
         }
     })
+})
+
+clearBtn.addEventListener('click', () => {
+    num1 = "";
+    num2 = "";
+    operator = "";
+    inputText.textContent = "";
 })
