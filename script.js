@@ -45,10 +45,10 @@ numBtn.forEach((num) => {
             num1 += e.target.textContent;
             return inputText.textContent += e.target.textContent; 
         } else {
-            inputText.textContent = "" ;
             num2 += e.target.textContent;
+            clearOnce();
             return inputText.textContent += e.target.textContent; 
-        }
+        };
     });
 });
 
@@ -58,7 +58,7 @@ operateBtn.forEach((operation) => {
         if (e.target.innerText != "=") {
             operator = e.target.textContent;
             return inputText.textContent = e.target.textContent;
-        } else {
+        }   else {
             operate(num1, operator, num2);
             return inputText.textContent = result; 
         }
@@ -73,11 +73,16 @@ clearBtn.addEventListener('click', () => {
     result = "";
 });
 
-const newNumb = (storedNumber, result) => {
-    if (result != "") {
-        num1 = result;
-    } 
-};
-
+const clearOnce = () => {
+    if (inputText.textContent === '+') {
+        inputText.textContent = "";
+    } else if (inputText.textContent === '-') {
+        inputText.textContent = "";
+    } else if (inputText.textContent === '*') {
+        inputText.textContent = "";
+    } else if (inputText.textContent === '/') {
+        inputText.textContent = "";
+    }
+}
 
 
