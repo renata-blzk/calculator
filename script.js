@@ -41,6 +41,7 @@ const operate = (num1, operator, num2) => {
 
 numBtn.forEach((num) => {
     num.addEventListener('click', (e) => {
+
         if (operator === "") {
             num1 += e.target.textContent;
             return inputText.textContent += e.target.textContent; 
@@ -56,7 +57,7 @@ operateBtn.forEach((operation) => {
     operation.addEventListener('click', (e) => {
         if (e.target.innerText != "=") {
             operator = e.target.textContent;
-            return inputText.textContent += e.target.textContent;
+            //return inputText.textContent = e.target.textContent;
         } else {
             operate(num1, operator, num2);
             updateValues();
@@ -78,4 +79,6 @@ const updateValues = () => {
     num2 = "";
     operator = "";
 }
+
+
 
