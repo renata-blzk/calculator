@@ -46,7 +46,6 @@ numBtn.forEach((num) => {
             return inputText.textContent += e.target.textContent; 
         }   else {
             num2 += e.target.textContent;
-            clearOnce();
             return inputText.textContent += e.target.textContent; 
         };
     });
@@ -57,12 +56,12 @@ operateBtn.forEach((operation) => {
     operation.addEventListener('click', (e) => {
         if (e.target.innerText != "=") {
             operator = e.target.textContent;
-            return inputText.textContent = e.target.textContent;
-        }   else {
+            return inputText.textContent += e.target.textContent;
+        } else {
             operate(num1, operator, num2);
             updateValues();
             return inputText.textContent = result; 
-        }
+        } 
     });
 });
 
@@ -73,20 +72,6 @@ clearBtn.addEventListener('click', () => {
     inputText.textContent = "";
     result = "";
 });
-
-const clearOnce = () => {
-    if (inputText.textContent === '+') {
-        inputText.textContent = "";
-    } else if (inputText.textContent === '-') {
-        inputText.textContent = "";
-    } else if (inputText.textContent === '*') {
-        inputText.textContent = "";
-    } else if (inputText.textContent === '/') {
-        inputText.textContent = "";
-    } else if (inputText.textContent === 'nope') {
-        inputText.textContent = "";
-    }
-}
 
 const updateValues = () => {
     num1 = result;
