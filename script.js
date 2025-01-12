@@ -43,10 +43,12 @@ numBtn.forEach((num) => {
     num.addEventListener('click', (e) => {
         if (operator === "") {
             num1 += e.target.textContent;
+            num.style.opacity = '0.85';
             return inputText.textContent += e.target.textContent; 
         }   else {
             clearDisplay();
             num2 += e.target.textContent;
+            num.style.opacity = '0.85';
             return inputText.textContent += e.target.textContent; 
         };
     });
@@ -57,16 +59,19 @@ operateBtn.forEach((operation) => {
     operation.addEventListener('click', (e) => {
         if (e.target.innerText != "=") {
             operator = e.target.textContent;
+            operation.style.opacity = '0.85';
             //return inputText.textContent = e.target.textContent;
         } else {
             operate(num1, operator, num2);
             updateValues();
+            operation.style.opacity = '0.85';
             return inputText.textContent = result; 
         } 
     });
 });
 
 clearBtn.addEventListener('click', () => {
+    clearBtn.style.opacity = '0.85';
     num1 = "";
     num2 = "";
     operator = "";
@@ -85,5 +90,6 @@ const clearDisplay = () => {
         inputText.textContent = "";
     }
 }
+
 
 
