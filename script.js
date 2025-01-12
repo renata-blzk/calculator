@@ -44,7 +44,7 @@ numBtn.forEach((num) => {
         if (operator === "") {
             num1 += e.target.textContent;
             return inputText.textContent += e.target.textContent; 
-        } else {
+        }   else {
             num2 += e.target.textContent;
             clearOnce();
             return inputText.textContent += e.target.textContent; 
@@ -60,6 +60,7 @@ operateBtn.forEach((operation) => {
             return inputText.textContent = e.target.textContent;
         }   else {
             operate(num1, operator, num2);
+            updateValues();
             return inputText.textContent = result; 
         }
     });
@@ -82,7 +83,14 @@ const clearOnce = () => {
         inputText.textContent = "";
     } else if (inputText.textContent === '/') {
         inputText.textContent = "";
+    } else if (inputText.textContent === 'nope') {
+        inputText.textContent = "";
     }
 }
 
+const updateValues = () => {
+    num1 = result;
+    num2 = "";
+    operator = "";
+}
 
