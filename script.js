@@ -41,11 +41,11 @@ const operate = (num1, operator, num2) => {
 
 numBtn.forEach((num) => {
     num.addEventListener('click', (e) => {
-
         if (operator === "") {
             num1 += e.target.textContent;
             return inputText.textContent += e.target.textContent; 
         }   else {
+            clearDisplay();
             num2 += e.target.textContent;
             return inputText.textContent += e.target.textContent; 
         };
@@ -80,5 +80,10 @@ const updateValues = () => {
     operator = "";
 }
 
+const clearDisplay = () => {
+    if (operator != "" && num2 === "") {
+        inputText.textContent = "";
+    }
+}
 
 
