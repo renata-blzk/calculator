@@ -43,13 +43,19 @@ numBtn.forEach((num) => {
     num.addEventListener('click', (e) => {
         if (operator === "") {
             num1 += e.target.textContent;
-            num.style.opacity = '0.85';
+            //num.style.opacity = '0.85';
             return inputText.textContent += e.target.textContent; 
-        }   else {
+        /*}   else if (result != "") {
+            num1 = result;
             clearDisplay();
             num2 += e.target.textContent;
-            num.style.opacity = '0.85';
-            return inputText.textContent += e.target.textContent; 
+            //operator = e.target.textContent;
+            return inputText.textContent += e.target.textContent;*/
+        } else {
+        clearDisplay();
+        num2 += e.target.textContent;
+        //num.style.opacity = '0.85';
+        return inputText.textContent += e.target.textContent;
         };
     });
 });
@@ -57,21 +63,29 @@ numBtn.forEach((num) => {
 
 operateBtn.forEach((operation) => {
     operation.addEventListener('click', (e) => {
-        if (e.target.innerText != "=") {
+        if (e.target.innerText != "" && num2 === "") {
             operator = e.target.textContent;
-            operation.style.opacity = '0.85';
+            
+            /*(e.target.innerText != "=") {
+            operator = e.target.textContent;
+            //operation.style.opacity = '0.85';
             //return inputText.textContent = e.target.textContent;
-        } else {
+        } else {*/
+        } else if (e.target.innerText != "" && num2 != "") {
             operate(num1, operator, num2);
+            console.log(`${num1} ${operator} ${num2} = ${result}`);
             updateValues();
-            operation.style.opacity = '0.85';
+            //operation.style.opacity = '0.85';
             return inputText.textContent = result; 
-        } 
+        } else if (result != "") {
+            clearDisplay();
+            console.log(`${num1} ${operator} ${num2} = ${result}`);           
+        }
     });
 });
 
 clearBtn.addEventListener('click', () => {
-    clearBtn.style.opacity = '0.85';
+    //clearBtn.style.opacity = '0.85';
     num1 = "";
     num2 = "";
     operator = "";
@@ -90,6 +104,3 @@ const clearDisplay = () => {
         inputText.textContent = "";
     }
 }
-
-
-
