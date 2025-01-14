@@ -43,18 +43,10 @@ numBtn.forEach((num) => {
     num.addEventListener('click', (e) => {
         if (operator === "") {
             num1 += e.target.textContent;
-            //num.style.opacity = '0.85';
             return inputText.textContent += e.target.textContent; 
-        /*}   else if (result != "") {
-            num1 = result;
-            clearDisplay();
-            num2 += e.target.textContent;
-            //operator = e.target.textContent;
-            return inputText.textContent += e.target.textContent;*/
         } else {
         clearDisplay();
         num2 += e.target.textContent;
-        //num.style.opacity = '0.85';
         return inputText.textContent += e.target.textContent;
         };
     });
@@ -63,23 +55,24 @@ numBtn.forEach((num) => {
 
 operateBtn.forEach((operation) => {
     operation.addEventListener('click', (e) => {
-        if (e.target.innerText != "" && num2 === "") {
-            operator = e.target.textContent;
-            
-            /*(e.target.innerText != "=") {
-            operator = e.target.textContent;
-            //operation.style.opacity = '0.85';
-            //return inputText.textContent = e.target.textContent;
-        } else {*/
+        // Case when no number is entered yet
+        if (e.target.innerText != "" && num1 === "") {
+            return;
+        // Case when operator is clicked and num2 is filled (perform calculation)
         } else if (e.target.innerText != "" && num2 != "") {
-            operate(num1, operator, num2);
+            result = operate(num1, operator, num2);
             console.log(`${num1} ${operator} ${num2} = ${result}`);
+            inputText.textContent = result;
+            updateValues(); 
+        // Case when result exists and no num2 (start new calculation)
+        } else if (result != "" && num2 === "") {
             updateValues();
-            //operation.style.opacity = '0.85';
-            return inputText.textContent = result; 
-        } else if (result != "") {
-            clearDisplay();
-            console.log(`${num1} ${operator} ${num2} = ${result}`);           
+            console.log(`${num1} ${operator} ${num2} = ${result}`);
+            inputText.textContent = result; // Show the result       
+        }
+        if (e.target.innerText != "" && num2 === ""){
+            operator = e.target.textContent;
+            console.log('operator is set to:', operator);
         }
     });
 });
@@ -97,6 +90,7 @@ const updateValues = () => {
     num1 = result;
     num2 = "";
     operator = "";
+    result = "";
 }
 
 const clearDisplay = () => {
