@@ -65,6 +65,8 @@ operateBtn.forEach((operation) => {
         } if (e.target.innerText != "" && num2 === ""){
             operator = e.target.textContent;
             //console.log('operator is set to:', operator);
+        } if (result != "" && e.target.innerText === "=") {
+            updateValues();
         }
     });
 });
