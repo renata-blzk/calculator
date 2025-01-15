@@ -56,7 +56,7 @@ button, .display {
 button {
     border-radius: 32%;
     background-color: antiquewhite;
-    border: solid 2px aliceblue;
+    border: solid 2px rgb(244, 203, 191);
     font-size: 35px;
 }
 

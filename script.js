@@ -41,6 +41,13 @@ const operate = (num1, operator, num2) => {
 
 numBtn.forEach((num) => {
     num.addEventListener('click', (e) => {
+            num.style.backgroundColor = '#E0BFB8';
+            num.style.transition = '.25s ease';
+
+            setTimeout(() => {
+                num.style.backgroundColor = "";
+            }, 170);
+        
         if (operator === "") {
             num1 += e.target.textContent;
             return inputText.textContent += e.target.textContent; 
@@ -53,6 +60,7 @@ numBtn.forEach((num) => {
 });
 
 
+
 operateBtn.forEach((operation) => {
     operation.addEventListener('click', (e) => {
         // Case when no number is entered yet
@@ -60,20 +68,16 @@ operateBtn.forEach((operation) => {
             return;
         // Case when operator is clicked and num2 is filled (perform calculation)
         } else if (e.target.innerText != "" && num2 != "") {
-            //operation.style.backgroundColor = "green";
             result = operate(num1, operator, num2);
             console.log(`${num1} ${operator} ${num2} = ${result}`);
             inputText.textContent = result;
             updateValues(); 
-        // Case when result exists and no num2 (start new calculation)
         } else if (result != "" && num2 === "") {
-            //operation.style.backgroundColor = "green";
             updateValues();
             console.log(`${num1} ${operator} ${num2} = ${result}`);
             inputText.textContent = result; // Show the result       
         } 
         if (e.target.innerText != "" && num2 === ""){
-            //operation.style.backgroundColor = "green";
             operator = e.target.textContent;
             console.log('operator is set to:', operator);
         }
@@ -100,10 +104,3 @@ const clearDisplay = () => {
         inputText.textContent = "";
     }
 }
-
-function changeColor() {
-    backgroundColor = 'blue';
-}
-/*numBtn.addEventListener('click', () => {
-
-})*/
