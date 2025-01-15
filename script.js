@@ -65,6 +65,7 @@ operateBtn.forEach((operation) => {
     operation.addEventListener('click', (e) => {
         // Case when no number is entered yet
         if (e.target.innerText != "" && num1 === "") {
+            operation.style.backgroundColor = "";
             return;
         // Case when operator is clicked and num2 is filled (perform calculation)
         } else if (e.target.innerText != "" && num2 != "") {
@@ -72,14 +73,14 @@ operateBtn.forEach((operation) => {
             console.log(`${num1} ${operator} ${num2} = ${result}`);
             inputText.textContent = result;
             updateValues(); 
+        // Case when result exists and no num2 (start new calculation)
         } else if (result != "" && num2 === "") {
             updateValues();
             console.log(`${num1} ${operator} ${num2} = ${result}`);
             inputText.textContent = result; // Show the result       
-        } 
-        if (e.target.innerText != "" && num2 === ""){
+        } if (e.target.innerText != "" && num2 === ""){
             operator = e.target.textContent;
-            console.log('operator is set to:', operator);
+            //console.log('operator is set to:', operator);
         }
     });
 });
@@ -104,3 +105,12 @@ const clearDisplay = () => {
         inputText.textContent = "";
     }
 }
+
+document.addEventListener('click', (e) => {
+    if(e.target.classList.contains('function')) {
+        operateBtn.forEach(function(button){
+            button.classList.remove('active');
+        });
+        e.target.classList.add('active');
+    }
+});

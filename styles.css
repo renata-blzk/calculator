@@ -76,6 +76,14 @@ button {
     border: solid 2px rgb(238, 243, 186);
 }
 
+.color:active {
+    background-color: orange;
+}
+
+button.button-categories.active {
+    background-color: blueviolet;
+}
+
 
 
 
