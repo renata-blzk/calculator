@@ -7,25 +7,11 @@ let num2 = "";
 let operator = "";
 let result = "";
 
-const add = (a, b) => {
-    return result = (a + b);
-}
-
-const substract = (a, b) => {
-    return result = (a - b);
-}
-
-const multiply = (a, b) => {
-    return result = (a * b);
-}
-
-const divide = (a, b) => {
-    if (num2 === '0') {
-        return result = ("nope");
-    }
-    return result = (a / b);
-}
-
+const add = (a, b) => result = (a + b);
+const substract = (a, b) => result = (a - b);
+const multiply = (a, b) => result = (a * b);
+const divide = (a, b) => (num2 === '0') ? 'nope' : result = (a / b);
+    
 const operate = (num1, operator, num2) => {
     switch (operator) {
         case '+':
@@ -58,8 +44,6 @@ numBtn.forEach((num) => {
         };
     });
 });
-
-
 
 operateBtn.forEach((operation) => {
     operation.addEventListener('click', (e) => {
