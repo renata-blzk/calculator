@@ -30,7 +30,6 @@ numBtn.forEach((num) => {
     num.addEventListener('click', (e) => {
             num.style.backgroundColor = '#E0BFB8';
             num.style.transition = '.25s ease';
-
             setTimeout(() => {
                 num.style.backgroundColor = "";
             }, 170);
