@@ -2,6 +2,7 @@ const inputText = document.querySelector('#input');
 const numBtn = document.querySelectorAll('.number');
 const operateBtn = document.querySelectorAll('.function');
 const clearBtn = document.querySelector('.clear');
+let previousBtn = null;
 let num1 = "";
 let num2 = "";
 let operator = "";
@@ -38,9 +39,9 @@ numBtn.forEach((num) => {
             num1 += e.target.textContent;
             return inputText.textContent += e.target.textContent; 
         } else {
-        clearDisplay();
-        num2 += e.target.textContent;
-        return inputText.textContent += e.target.textContent;
+            clearDisplay();
+            num2 += e.target.textContent;
+            return inputText.textContent += e.target.textContent;
         };
     });
 });
@@ -92,11 +93,30 @@ const clearDisplay = () => {
     }
 }
 
-document.addEventListener('click', (e) => {
-    if(e.target.classList.contains('function')) {
-        operateBtn.forEach(function(button){
-            button.classList.remove('active');
-        });
-        e.target.classList.add('active');
-    }
+operateBtn.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        if (previousBtn != null) {
+            previousBtn.style.backgroundColor = "";
+        }
+
+        if (e.target.innerText === "=") {
+            e.target.style.backgroundColor = '#006400';
+            e.target.style.transition = '.25s ease';
+            setTimeout(() => {
+                e.target.style.backgroundColor = "";
+            }, 200);
+            previousBtn = e.target;
+        } else if (e.target.innerText === "C") {
+            e.target.style.backgroundColor = '#CD5C5C';
+            e.target.style.transition = '.25s ease';
+            setTimeout(() => {
+                e.target.style.backgroundColor = "";
+            }, 200);
+            previousBtn = e.target;            
+        } else {
+            e.target.style.backgroundColor = '#f1c40f';
+            e.target.style.transition = '.25s ease';
+            previousBtn = e.target;
+        }
+    });
 });

@@ -68,21 +68,15 @@ button {
 
 .clear {
     background-color: rgb(240, 144, 144);
-    border: solid 2px rgb(226, 174, 150);
+    border: solid 2px rgb(140, 79, 65);
 }
 
 .action {
     background-color: rgb(240, 238, 144);
-    border: solid 2px rgb(238, 243, 186);
+    border: solid 2px rgb(186, 175, 91);
 }
 
-.color:active {
-    background-color: orange;
-}
 
-button.button-categories.active {
-    background-color: blueviolet;
-}
 
 
 
