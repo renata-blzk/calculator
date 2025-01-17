@@ -2,6 +2,7 @@ const inputText = document.querySelector('#input');
 const numBtn = document.querySelectorAll('.number');
 const operateBtn = document.querySelectorAll('.function');
 const clearBtn = document.querySelector('.clear');
+const dotBtn = document.querySelector('.dot');
 let previousBtn = null;
 let num1 = "";
 let num2 = "";
@@ -21,6 +22,19 @@ const operate = (num1, operator, num2) => {
         case '/': return divide(parseFloat(num1), parseFloat(num2));
     }
 };
+
+const clearDisplay = () => {
+    if (operator != "" && num2 === "") {
+        inputText.textContent = "";
+    }
+}
+
+const updateValues = () => {
+    num1 = result;
+    num2 = "";
+    operator = "";
+    result = "";
+}
 
 numBtn.forEach((num) => {
     num.addEventListener('click', (e) => {
@@ -67,27 +81,6 @@ operateBtn.forEach((operation) => {
     });
 });
 
-clearBtn.addEventListener('click', () => {
-    num1 = "";
-    num2 = "";
-    operator = "";
-    inputText.textContent = "";
-    result = "";
-});
-
-const updateValues = () => {
-    num1 = result;
-    num2 = "";
-    operator = "";
-    result = "";
-}
-
-const clearDisplay = () => {
-    if (operator != "" && num2 === "") {
-        inputText.textContent = "";
-    }
-}
-
 operateBtn.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         if (previousBtn != null) {
@@ -114,4 +107,12 @@ operateBtn.forEach((btn) => {
             previousBtn = e.target;
         }
     });
+});
+
+clearBtn.addEventListener('click', () => {
+    num1 = "";
+    num2 = "";
+    operator = "";
+    inputText.textContent = "";
+    result = "";
 });
