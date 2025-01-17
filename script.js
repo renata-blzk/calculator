@@ -15,14 +15,10 @@ const divide = (a, b) => (num2 === '0') ? 'nope' : result = (a / b);
     
 const operate = (num1, operator, num2) => {
     switch (operator) {
-        case '+':
-            return add(parseFloat(num1), parseFloat(num2));
-        case '-':
-            return substract(parseFloat(num1), parseFloat(num2));
-        case '*':
-            return multiply(parseFloat(num1), parseFloat(num2));
-        case '/':
-            return divide(parseFloat(num1), parseFloat(num2));
+        case '+': return add(parseFloat(num1), parseFloat(num2));
+        case '-': return substract(parseFloat(num1), parseFloat(num2));
+        case '*': return multiply(parseFloat(num1), parseFloat(num2));
+        case '/': return divide(parseFloat(num1), parseFloat(num2));
     }
 };
 
