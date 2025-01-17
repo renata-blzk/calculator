@@ -55,6 +55,33 @@ numBtn.forEach((num) => {
     });
 });
 
+dotBtn.addEventListener('click', (e) => {
+    console.log(e.target.textContent);
+    inputDecimal(e.target.textContent);
+    inputText.textContent += e.target.textContent;
+});
+
+const inputDecimal = (dot) => {
+    if (num1.includes(".") || num2.includes(".")) {
+        return;
+    
+
+    /*(typeof num1.value == 'string' && num1.value.indexOf(".")) {
+        return;
+    } else if (typeof num2.value == 'string' && num2.value.indexOf(".")) {
+        return;*/
+    
+    } else if (num1 != "" && operator === "") {
+        num1 += dot;
+    //} else if (num1 != "" && operator != "") {
+    //   num1 += dot;
+    } else if (num2 != "" && operator != "") {
+        num2 += dot;
+    } else {
+        num1 += dot;
+    }
+};
+
 operateBtn.forEach((operation) => {
     operation.addEventListener('click', (e) => {
         // Case when no number is entered yet
