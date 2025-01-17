@@ -82,6 +82,14 @@ const inputDecimal = (dot) => {
     }
 };
 
+clearBtn.addEventListener('click', () => {
+    num1 = "";
+    num2 = "";
+    operator = "";
+    inputText.textContent = "";
+    result = "";
+});
+
 operateBtn.forEach((operation) => {
     operation.addEventListener('click', (e) => {
         // Case when no number is entered yet
@@ -134,12 +142,4 @@ operateBtn.forEach((btn) => {
             previousBtn = e.target;
         }
     });
-});
-
-clearBtn.addEventListener('click', () => {
-    num1 = "";
-    num2 = "";
-    operator = "";
-    inputText.textContent = "";
-    result = "";
 });
