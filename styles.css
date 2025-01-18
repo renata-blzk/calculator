@@ -62,6 +62,26 @@ button {
     font-size: 35px;
 }
 
+.number:hover, .dot:hover {
+    background-color: #E0BFB8;
+    transition: .15s ease;
+}
+
+.action:hover {
+    background-color: #f1c40f;
+    transition: .15s ease;
+}
+
+.clear:hover {
+    background-color: #CD5C5C;
+    transition: .15s ease;
+}
+
+.equal:hover {
+    background-color: #006400;
+    transition: .15s ease;
+}
+
 .equal {
     background-color: hsla(108, 55%, 49%, 0.7);
     border-radius: 5%;
