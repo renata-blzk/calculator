@@ -91,7 +91,7 @@ operateBtn.forEach((operation) => {
             num1 = "0";
         // Case when operator is clicked and num2 is filled (perform calculation)
         } else if (e.target.innerText != "" && num2 != "") {
-            result = Number((operate(num1, operator, num2).toFixed(16)));
+            result = Number((operate(num1, operator, num2).toFixed(10)));
             console.log(`${num1} ${operator} ${num2} = ${result}`);
             inputText.textContent = result;
             updateValues(); 
