@@ -56,31 +56,19 @@ numBtn.forEach((num) => {
 });
 
 dotBtn.addEventListener('click', (e) => {
+    if (num1.includes(".") && operator === "") {
+        return;
+    } else if (operator != "=" && num2.includes(".")) {
+        return;
+    } else if (num1 != "" && operator === "") {
+        num1 += e.target.textContent;
+    } else if (num2 != "") {
+        num2 += e.target.textContent;
+    }
+
     console.log(e.target.textContent);
-    inputDecimal(e.target.textContent);
     inputText.textContent += e.target.textContent;
 });
-
-const inputDecimal = (dot) => {
-    if (num1.includes(".") || num2.includes(".")) {
-        return;
-    
-
-    /*(typeof num1.value == 'string' && num1.value.indexOf(".")) {
-        return;
-    } else if (typeof num2.value == 'string' && num2.value.indexOf(".")) {
-        return;*/
-    
-    } else if (num1 != "" && operator === "") {
-        num1 += dot;
-    //} else if (num1 != "" && operator != "") {
-    //   num1 += dot;
-    } else if (num2 != "" && operator != "") {
-        num2 += dot;
-    } else {
-        num1 += dot;
-    }
-};
 
 clearBtn.addEventListener('click', () => {
     num1 = "";
@@ -98,7 +86,7 @@ operateBtn.forEach((operation) => {
             return;
         // Case when operator is clicked and num2 is filled (perform calculation)
         } else if (e.target.innerText != "" && num2 != "") {
-            result = operate(num1, operator, num2);
+            result = operate(num1, operator, num2).toFixed(5);
             console.log(`${num1} ${operator} ${num2} = ${result}`);
             inputText.textContent = result;
             updateValues(); 
