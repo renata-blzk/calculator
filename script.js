@@ -12,7 +12,7 @@ let result = "";
 const add = (a, b) => result = (a + b);
 const substract = (a, b) => result = (a - b);
 const multiply = (a, b) => result = (a * b);
-const divide = (a, b) => (num2 === '0') ? 'nope' : result = (a / b);
+const divide = (a, b) => result = (a / b);
     
 const operate = (num1, operator, num2) => {
     switch (operator) {
@@ -84,6 +84,10 @@ operateBtn.forEach((operation) => {
         if (e.target.innerText != "" && num1 === "") {
             operation.style.backgroundColor = "";
             return;
+        } else if (operator === "/" && num2 === "0") {
+            inputText.textContent = "nope";
+            updateValues();
+            num1 = "0";
         // Case when operator is clicked and num2 is filled (perform calculation)
         } else if (e.target.innerText != "" && num2 != "") {
             result = operate(num1, operator, num2).toFixed(5);
