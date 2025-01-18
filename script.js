@@ -59,16 +59,14 @@ numBtn.forEach((num) => {
 
 // Handle dot click
 dotBtn.addEventListener('click', (e) => {
-    if (num1.includes(".") && operator === "") {
-        return;
-    } else if (operator != "=" && num2.includes(".")) {
-        return;
-    } else if (num1 != "" && operator === "") {
+    if (operator === "" && !num1.includes(".")) {
         num1 += e.target.textContent;
-    } else if (num2 != "") {
+    } else if (operator != "" && !num2.includes(".")) {
         num2 += e.target.textContent;
+    } else {
+        return;
     }
-
+    
     console.log(e.target.textContent);
     inputText.textContent += e.target.textContent;
 });
