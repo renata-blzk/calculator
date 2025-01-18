@@ -39,7 +39,7 @@ const updateValues = () => {
 numBtn.forEach((num) => {
     num.addEventListener('click', (e) => {
             num.style.backgroundColor = '#E0BFB8';
-            num.style.transition = '.25s ease';
+            num.style.transition = '.05s ease';
             setTimeout(() => {
                 num.style.backgroundColor = "";
             }, 170);
@@ -116,21 +116,21 @@ operateBtn.forEach((btn) => {
 
         if (e.target.innerText === "=") {
             e.target.style.backgroundColor = '#006400';
-            e.target.style.transition = '.25s ease';
+            e.target.style.transition = '.05s ease';
             setTimeout(() => {
                 e.target.style.backgroundColor = "";
             }, 200);
             previousBtn = e.target;
         } else if (e.target.innerText === "C") {
             e.target.style.backgroundColor = '#CD5C5C';
-            e.target.style.transition = '.25s ease';
+            e.target.style.transition = '.05s ease';
             setTimeout(() => {
                 e.target.style.backgroundColor = "";
             }, 200);
             previousBtn = e.target;            
         } else {
             e.target.style.backgroundColor = '#f1c40f';
-            e.target.style.transition = '.25s ease';
+            e.target.style.transition = '.05s ease';
             previousBtn = e.target;
         }
     });
