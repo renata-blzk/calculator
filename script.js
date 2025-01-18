@@ -36,14 +36,16 @@ const updateValues = () => {
     result = "";
 }
 
+// Handle number button click
 numBtn.forEach((num) => {
     num.addEventListener('click', (e) => {
+            // Change button color briefly
             num.style.backgroundColor = '#E0BFB8';
             num.style.transition = '.05s ease';
             setTimeout(() => {
                 num.style.backgroundColor = "";
             }, 170);
-        
+        // Append the clicked number to the appropiate variable
         if (operator === "") {
             num1 += e.target.textContent;
             return inputText.textContent += e.target.textContent; 
@@ -55,6 +57,7 @@ numBtn.forEach((num) => {
     });
 });
 
+// Handle dot click
 dotBtn.addEventListener('click', (e) => {
     if (num1.includes(".") && operator === "") {
         return;
@@ -108,6 +111,7 @@ operateBtn.forEach((operation) => {
     });
 });
 
+// Chnage operate button color
 operateBtn.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         if (previousBtn != null) {
